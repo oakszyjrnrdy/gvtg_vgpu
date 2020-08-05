@@ -1,0 +1,11 @@
+[Unit]
+Description=Create Intel GVT-g vGPU
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c "echo gvt_guid > /sys/devices/pcigvt_dom/gvt_pci/mdev_supported_types/gvt_type/create"
+ExecStop=/bin/sh -c "echo 1 > /sys/devices/pcigvt_dom/gvt_pci/gvt_guid/remove"
+RemainAfterExit=yes
+
+[Install]
+WantedBy=graphical.target
