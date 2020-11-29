@@ -4,6 +4,11 @@
 # Remove gvtg_vgpu before suspend or hibernation
 # Recreate gvtg_vgpu after waking from suspend or hibernation
 
+# Do nothing, if the service is disabled
+if ! systemctl is-enabled gvtg_vgpu.service &> /dev/null; then
+    exit 0
+fi
+
 case $1 in
     pre)
 	/usr/bin/systemctl stop gvtg_vgpu.service
