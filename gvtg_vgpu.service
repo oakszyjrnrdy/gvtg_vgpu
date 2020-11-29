@@ -3,8 +3,9 @@ Description=Create Intel GVT-g vGPU
 
 [Service]
 Type=oneshot
-ExecStart=/bin/sh -c "echo gvt_guid > /sys/devices/pcigvt_dom/gvt_pci/mdev_supported_types/gvt_type/create"
-ExecStop=/bin/sh -c "echo 1 > /sys/devices/pcigvt_dom/gvt_pci/gvt_guid/remove"
+EnvironmentFile=/etc/conf.d/gvtg_vgpu
+ExecStart=/bin/sh -c "echo $gvt_guid > /sys/devices/pci$gvt_dom/$gvt_pci/mdev_supported_types/$gvt_type/create"
+ExecStop=/bin/sh -c "echo 1 > /sys/devices/pci$gvt_dom/$gvt_pci/$gvt_guid/remove"
 RemainAfterExit=yes
 
 [Install]

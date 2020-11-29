@@ -1,0 +1,5 @@
+# Environment File for gvtg_vgpu.service
+gvt_guid=82b30fb4-4093-4b1d-9045-f32c4285e894
+gvt_dom=0000:00
+gvt_pci=0000:00:02.0
+gvt_type=i915-GVTg_V5_2
