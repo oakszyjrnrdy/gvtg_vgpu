@@ -14,17 +14,16 @@ Additionaly, it creates the vgpu after the system is booted.
 
 Install the aur pakage [gvtg_vgpu-git](https://aur.archlinux.org/packages/gvtg_vgpu-git).
 
-Remember to replace the the local variables in `prepare` in PKGBUILD.
-
 #### Others
 
 If you want to package it for other distributions, please let me know. I'll put the information here.
 
 ### Manual Installation
 
-1. Replace `gvt_dom`, `gvt_pci`, `gvt_guid` and `gvt_type` in `gvtg_vgpu.service` to match your own hardware. See [ArchWiki](https://wiki.archlinux.org/index.php/Intel_GVT-g) for more information.
-2. Move `gvtg_vgpu.service` into `/usr/lib/systemd/system/`
-3. Move `gvtg_vgpu.sh` into `/usr/lib/systemd/system-sleep/`.
+1. Move `gvtg_vgpu.service` into `/usr/lib/systemd/system/`
+1. Move `gvtg_vgpu.sh` into `/usr/lib/systemd/system-sleep/`.
+1. Move `gvtg_vgpu` into `/etc/conf.d/`.
+1. Change the value of `gvt_dom`, `gvt_pci`, `gvt_guid` and `gvt_type` in `gvtg_vgpu` file to match your own hardware. See [ArchWiki](https://wiki.archlinux.org/index.php/Intel_GVT-g) for more information.
 
 ## Usage
 
